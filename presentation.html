@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>GitHub WorkFlow</title>
+<meta name="author" content="(Edgar Giussepi Lopez Molina)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///home/giussepi/Public/link/environments/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///home/giussepi/Public/link/environments/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./style.css"/>
+<link rel="stylesheet" href="file:///home/giussepi/Public/link/environments/reveal.js/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///home/giussepi/Public/link/environments/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>GitHub WorkFlow</h1> <p>Edgar Giussepi Lopez Molina</p>
+</section>
+
+<section>
+<section id="slide-org13c09ed">
+<h2 id="org13c09ed">Introduction</h2>
+<div class="outline-text-2" id="text-org13c09ed">
+</div>
+</section>
+<section id="slide-orgf99b5cc">
+<h3 id="orgf99b5cc"></h3>
+<ul>
+<li>Collecting data -&gt; more data than necessary</li>
+<li>Dimensionality reduction
+<ul>
+<li>PCA</li>
+<li>ICA</li>
+
+</ul></li>
+<li>Choosing the right subspaces is not a trivial task</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+most of the time when collection data through sensors&#x2026;
+</p>
+
+<p>
+PCa for simple cases
+ICA when data registers two or more processes. it follows orthogonality
+constraints that limit its application
+</p>
+
+</aside>
+</section>
+<section id="slide-orgee51da8">
+<h3 id="orgee51da8">Dictionary learning methods [2]</h3>
+<ul>
+<li>Build dictionaries of subspaces</li>
+<li>Subspaces used to create efficient representations if signals classes</li>
+<li>Can reveal prior unknown statistics of signals measured through
+different devices.</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/giussepi/Public/link/environments/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '15728159987567729117', // null if client
+    id: '5fd4798b7b99595e', // id, obtained from socket.io server
+    url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+,
+ { src: 'file:///home/giussepi/Public/link/environments/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/giussepi/Public/link/environments/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/giussepi/Public/link/environments/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: 'file:///home/giussepi/Public/link/environments/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+,
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js', async: true },
+ { src: 'file:///home/giussepi/Public/link/environments/reveal.js/plugin/multiplex/master.js', async: true }]
+});
+</script>
+</body>
+</html>

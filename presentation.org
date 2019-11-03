@@ -1,0 +1,42 @@
+#+OPTIONS: num:nil toc:nil ^:nil
+#+REVEAL_TRANS: convex
+# +REVEAL_TRANS: None/Fade/Slide/Convex/Concave/Zoom
+#+REVEAL_THEME: black
+# +REVEAL_THEME:
+# Black/White/League/Sky/Beige/Simple/Serif/Blood/Night/Moon/Solarized
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1> <p>%a</p>
+#+REVEAL_MATHJAX_URL: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML
+# #+REVEAL_PLUGINS: (markdown highlight notes zoom-js)
+#+REVEAL_EXTRA_CSS: ./style.css
+# ####
+#+REVEAL_MULTIPLEX_ID: 5fd4798b7b99595e
+#+REVEAL_MULTIPLEX_SECRET: 15728159987567729117
+#+REVEAL_MULTIPLEX_URL: https://reveal-js-multiplex-ccjbegmaii.now.sh
+# #+REVEAL_MULTIPLEX_SOCKETIO_URL: http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js
+#+REVEAL_MULTIPLEX_SOCKETIO_URL: https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js
+#+REVEAL_PLUGINS: (markdown highlight notes zoom-js multiplex)
+
+#+Title: GitHub WorkFlow
+#+Author: Edgar Giussepi Lopez Molina
+#+EMAIL: e.g.lopezmolina@qmul.ac.uk
+
+* Introduction
+** @@html:@@
+   + Collecting data -> more data than necessary
+   + Dimensionality reduction
+     * PCA
+     * ICA
+   + Choosing the right subspaces is not a trivial task
+
+   #+BEGIN_NOTES
+   most of the time when collection data through sensors...
+
+   PCa for simple cases
+   ICA when data registers two or more processes. it follows orthogonality
+   constraints that limit its application
+   #+END_NOTES
+** @@html:Dictionary learning methods [2]@@
+   + Build dictionaries of subspaces
+   + Subspaces used to create efficient representations if signals classes
+   + Can reveal prior unknown statistics of signals measured through
+     different devices.
