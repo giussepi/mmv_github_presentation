@@ -16,27 +16,222 @@
 #+REVEAL_MULTIPLEX_SOCKETIO_URL: https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js
 #+REVEAL_PLUGINS: (markdown highlight notes zoom-js multiplex)
 
-#+Title: GitHub WorkFlow
+#+Title: GitHub Workflow
 #+Author: Edgar Giussepi Lopez Molina
 #+EMAIL: e.g.lopezmolina@qmul.ac.uk
 
 * Introduction
+** Git
+*** @@html:@@
+    Git is a distributed version-control system for tracking changes
+    in source code during software development. It is designed for
+    coordinating work among programmers, but it can be used to track changes in
+    any set of files
+
+** GitHub
+*** @@html:@@
+    GitHub is an American company that provides hosting for software development
+    version control using Git
+
+*** Services
+    + GitHub
+    + GitHub Enterprise
+    + GitHub Pages
+    + Gist
+    + Education Program
+    + GitHub Marketplace service
+    + GitHub Community Forum
+    + GitHub Sponsors
+
+** GitHub Education
+*** @@html:@@
+    GitHub Education helps students, teachers, and schools access the tools and
+    events they need to shape the next generation of software development.
+
+*** Links
+    + https://education.github.com/
+    + https://education.github.com/benefits
+    + https://education.github.com/teachers
+    + https://help.github.com/en/github/teaching-and-learning-with-github-
+
+* Usage (Cheat sheet)
 ** @@html:@@
-   + Collecting data -> more data than necessary
-   + Dimensionality reduction
-     * PCA
-     * ICA
-   + Choosing the right subspaces is not a trivial task
+   + Create a .gitignore file, e.g.:
+     #+BEGIN_SRC shell
+       # DATASET and WEIGHTS
+       COCO
+       weights
 
-   #+BEGIN_NOTES
-   most of the time when collection data through sensors...
+       # emacs files
+       ,*~
 
-   PCa for simple cases
-   ICA when data registers two or more processes. it follows orthogonality
-   constraints that limit its application
-   #+END_NOTES
-** @@html:Dictionary learning methods [2]@@
-   + Build dictionaries of subspaces
-   + Subspaces used to create efficient representations if signals classes
-   + Can reveal prior unknown statistics of signals measured through
-     different devices.
+       # pickle files generated
+       data/pickle_files
+
+       # tensorboard logs
+       tensorboard_logs
+
+       # model checkpoints
+       checkpoints
+       checkpoints_sample
+
+       # shell logs
+       shell_logs
+
+       # virtualenv
+       env
+
+       # configuration file
+       settings.py
+
+       # Byte-compiled / optimized / DLL files
+       __pycache__/
+       ,*.py[cod]
+       ,*$py.class
+
+       # input and output folders
+       input
+       output
+     #+END_SRC
+** @@html:@@
+   + Create / initialise a new repository
+     #+BEGIN_SRC shell
+       git init
+       git add .
+       git commit -m "first commit"
+       git remote add origin git@github.com:<username>/<myrepository>.git
+       git push -u origin master
+     #+END_SRC
+** @@html:@@
+   + Commit changes
+     #+BEGIN_SRC shell
+       git add file1 file 2
+       git commit -am "module->class:: new preprocessing method"
+     #+END_SRC
+
+   + Push changes to GitHub repository
+     #+BEGIN_SRC shell
+       git push
+     #+END_SRC
+
+** @@html:@@
+   + Amend name from last commit
+     #+BEGIN_SRC shell
+       git commit --amend -m "<new commit message>"
+     #+END_SRC
+
+   + Undo last commit
+     #+BEGIN_SRC shell
+       git reset HEAD~
+     #+END_SRC
+** @@html:@@
+   + See branches
+     #+BEGIN_SRC shell
+       git branch
+     #+END_SRC
+
+   + Create new branch
+     #+BEGIN_SRC shell
+       git checkout -b <new_branch_name>
+     #+END_SRC
+
+   + Push new branch to GitHub repository
+     #+BEGIN_SRC shell
+       git push origin mybranch
+     #+END_SRC
+
+** @@html:@@
+   + Remove branch from GitHub repository (generally after merging a Pull Request or
+     discarding the changes from a branch)
+     #+BEGIN_SRC shell
+       git push origin :mybranch
+     #+END_SRC
+
+   + Remove branch from local repository (generally after merging a Pull Request or
+     discarding the changes from a branch)
+     #+BEGIN_SRC shell
+       git branch -d <mybranch>
+     #+END_SRC
+
+** @@html:@@
+   + Pull changes from GitHub repository
+     #+BEGIN_SRC shell
+       git pull --rebase origin mybranch
+     #+END_SRC
+
+   + Pick specific commit to merge (instead of the whole branch)
+     #+BEGIN_SRC shell
+       git cherry-pick -x <commit-sha>
+     #+END_SRC
+
+* GitHub Education Account
+** Qianni's Account
+*** @@html:@@
+    https://github.com/QNZhang
+** Content
+*** @@html:@@
+   + Repositories with working code and ready to be forked, cloned, duplicated
+     or downloaded.
+   + Applications from challenges, DL/ML architectures developed, processing
+     tools, applications from PhD stages; in a nutshell, any program that could be
+     re-used or reviewed as a reference.
+** Rules
+*** @@html:@@
+    + All of them will be private unless they are ready to be released.
+    + They must contain a README.md file with clear and concise instructions for:
+      + Installation
+      + Usage
+*** @@html:@@
+    + Long files must be handled through [[https://git-lfs.github.com/][git-lfs]]
+    + PhD students cloning a repository will work as collaborators.
+    + New features / modifications must be done on new branches with clear
+      names describing the modification, e.g., classification-coco-dataset
+*** @@html:@@
+    + If changes must modify the original branch, then a pull request (PR) must be
+      created.
+    + The manager of the account will review the PR.
+*** @@html:@@
+    :PROPERTIES:
+    :reveal_background: ./images/pull_request_button.png
+    :reveal_background_trans: slide
+    :reveal_background_size: 50%
+    :END:
+
+*** @@html:@@
+    :PROPERTIES:
+    :reveal_background: ./images/pull_request_form.png
+    :reveal_background_trans: slide
+    :reveal_background_size: 50%
+    :END:
+
+** Development advice
+*** @@html:@@
+    + Handle simple changes with normal commit operations.
+    + Complex or large modifications should be done on a separate branch.
+      Thus, if something goes wrong it can be easily reverted.
+    + After merging a branch, remove the merged branch.
+
+*** @@html:@@
+    + Use meaningful names for commits and branches. So later, following the
+      development and bug tracking will be natural and easier respectively.
+    + Do not comment code to have it as reference. Instead, just remove it because
+      GitHub will already keep track of it.
+
+*** @@html:@@
+    + It is better to have several small commits than a huge commit with lots of
+      changes. The latter will be very hard to follow.
+    + Use GitHub for any kind of project that can have several version or
+      requires a incremental development. e.g., articles, thesis, big and small
+      applications, CVs, among others.
+
+*** When more than one person is working in the same project
+     - After saving every single local commit update your local repository by running:
+       #+BEGIN_SRC shell
+         git pull --rebase origin <branch_name>
+       #+END_SRC
+     - If there are conflicts, fix them properly and then push the changes to
+       the repository to make sure your coworkers will have the most
+       updated working version too.
+* Exercise
+  https://github.com/giussepi/mmv_github_presentation_exercise
+* Thank you!
